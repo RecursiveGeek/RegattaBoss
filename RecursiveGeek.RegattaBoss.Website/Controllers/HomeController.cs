@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RecursiveGeek.RegattaBoss.Website.Models;
@@ -32,6 +33,17 @@ namespace RecursiveGeek.RegattaBoss.Website.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Cart()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult Checkout()
+        {
+            return View();
         }
     }
 }
