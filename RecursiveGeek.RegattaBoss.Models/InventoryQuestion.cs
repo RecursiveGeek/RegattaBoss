@@ -1,17 +1,18 @@
 ﻿using System;
 
-namespace RecursiveGeek.RegattaBoss.Models.Table
+namespace RecursiveGeek.RegattaBoss.Models
 {
-    public class Question
+    public class InventoryQuestion
     {
-        public Guid Id { get; set; }
+        public int InventoryQuestionId { get; set; }
         public string QuestionCode { get; set; }
-        public InvItemType ItemType { get; set; }
         public string Description { get; set; }
         public string Notes { get; set; }
         public bool IsActive { get; set; }
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
         public DateTime Modified => Updated ?? Created;
+
+        public InventoryType ItemType { get; set; } // parent reference
     }
 }
